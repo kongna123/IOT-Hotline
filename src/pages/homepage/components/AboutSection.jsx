@@ -22,6 +22,7 @@ const AboutSection = ({ language }) => {
             role: "Lead IoT Engineer",
             image: "https://randomuser.me/api/portraits/men/32.jpg",
             experience: "8+ years"
+            
           },
           {
             name: "Niran Techawat",

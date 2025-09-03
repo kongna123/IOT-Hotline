@@ -19,7 +19,7 @@ const HeroBanner = ({ language }) => {
       ]
     },
     th: {
-      title: "โซลูชัน IoT มืออาชีพ ใกล้แค่เอื้อม",
+      title: "บริการช่าง IoT ถึงหน้าประตูบ้านคุณ",
       subtitle: "เชื่อมต่อกับช่างเทคนิคที่ได้รับการรับรองสำหรับการแก้ไขปัญหาอุปกรณ์ และช้อปอุปกรณ์ IoT พรีเมียม - ทั้งหมดในแพลตฟอร์มเดียว",
       serviceButton: "จองบริการ",
       shopButton: "ช้อปสินค้า",
@@ -52,8 +52,8 @@ const HeroBanner = ({ language }) => {
               {currentContent?.trustBadge}
             </div>
             
-            <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-              {currentContent?.title}
+            <h1 className="text-4xl lg:text-6xl font-bold text-blue-600 mb-6 leading-tight">
+            {currentContent?.title}
             </h1>
             
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0">

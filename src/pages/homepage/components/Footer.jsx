@@ -75,7 +75,9 @@ const Footer = ({ language }) => {
             { label: "ติดตั้งเซ็นเซอร์อัจฉริยะ", path: "/service-booking-form?category=smart-sensor" },
             { label: "ติดตั้งสวิตช์อัจฉริยะ", path: "/service-booking-form?category=smart-switch" },
             { label: "ติดตั้งอุปกรณ์รักษาความปลอดภัย", path: "/service-booking-form?category=security-device" },
-            { label: "ติดตั้งเครือข่าย", path: "/service-booking-form?category=network-setup" }
+            { label: "ติดตั้งเครือข่าย", path: "/service-booking-form?category=network-setup" },
+            { label: "คอร์สออนไลน์", path: "/online-courses" }
+
           ]
         },
         products: {
