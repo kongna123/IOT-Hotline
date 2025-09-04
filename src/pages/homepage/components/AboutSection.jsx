@@ -134,7 +134,7 @@ const AboutSection = ({ language }) => {
           {/* Image */}
           <div className="relative">
             <Image
-              src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE32JBlZkWfnOkDZCO78OYj-nxcfIN9DfQPA&s"
               alt="IoT Hotline team working"
               className="w-full h-96 object-cover rounded-2xl card-shadow"
             />
