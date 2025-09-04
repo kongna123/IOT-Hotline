@@ -32,6 +32,10 @@ const Routes = () => {
         <Route path="/online-courses" element={<OnlineCoursesPage />} />
         {/* Route สำหรับ NotFound ต้องอยู่ล่างสุดเสมอ */}
         <Route path="*" element={<NotFound />} />
+    <Route path="/criminal-check" element={<CriminalCheckPage />} />
+    <Route path="/technician-registration" element={<TechnicianRegistrationPage />} />
+    <Route path="/technician-matching" element={<TechnicianMatchingPage />} />
+    <Route path="/online-courses" element={<OnlineCoursesPage />} />
       </RouterRoutes>
       </ErrorBoundary>
     </BrowserRouter>
