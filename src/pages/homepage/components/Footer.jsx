@@ -140,9 +140,9 @@ const Footer = ({ language }) => {
           <div className="grid lg:grid-cols-6 gap-8">
             {/* Company Info */}
             <div className="lg:col-span-2">
-              <div className="flex items-center space-x-2 mb-6">  
+              <div className="flex items-center space-x-2 mb-6">
                 <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                  <Icon name="Zap " size={20} color="white" />
+                  <Icon name="Zap" size={20} color="white" />
                 </div>
                 <span className="text-xl font-semibold">
                   {currentContent?.company?.name}
