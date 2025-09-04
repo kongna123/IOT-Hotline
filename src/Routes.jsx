@@ -26,11 +26,12 @@ const Routes = () => {
         <Route path="/product-catalog" element={<ProductCatalog />} />
         <Route path="/job-tracking-dashboard" element={<JobTrackingDashboard />} />
         <Route path="/homepage" element={<Homepage />} />
+        <Route path="/criminal-check" element={<CriminalCheckPage />} />
+        <Route path="/technician-registration" element={<TechnicianRegistrationPage />} />
+        <Route path="/technician-matching" element={<TechnicianMatchingPage />} />
+        <Route path="/online-courses" element={<OnlineCoursesPage />} />
+        {/* Route สำหรับ NotFound ต้องอยู่ล่างสุดเสมอ */}
         <Route path="*" element={<NotFound />} />
-    <Route path="/criminal-check" element={<CriminalCheckPage />} />
-    <Route path="/technician-registration" element={<TechnicianRegistrationPage />} />
-    <Route path="/technician-matching" element={<TechnicianMatchingPage />} />
-    <Route path="/online-courses" element={<OnlineCoursesPage />} />
       </RouterRoutes>
       </ErrorBoundary>
     </BrowserRouter>
