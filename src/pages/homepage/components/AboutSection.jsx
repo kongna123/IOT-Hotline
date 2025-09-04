@@ -70,21 +70,21 @@ const AboutSection = ({ language }) => {
         title: "ทีมผู้เชี่ยวชาญของเรา",
         members: [
           {
-            name: "Nattaphon Thongtiang",
-            role: "Head of Service Training",
-            image: "/assets/images/demonic.png",
+            name: "สมชาย ใจดี",
+            role: "วิศวกร IoT หัวหน้า",
+            image: "https://randomuser.me/api/portraits/men/32.jpg",
             experience: "8+ ปี"
           },
           {
-            name: "Anuphab Siripimploy",
-            role: "Human Resoruce",
-            image: "/assets/images/peenong.png",
+            name: "นิรันดร์ เทคะวัฒน์",
+            role: "ผู้เชี่ยวชาญด้านเครือข่าย",
+            image: "https://randomuser.me/api/portraits/men/45.jpg",
             experience: "6+ ปี"
           },
           {
-            name: "Napat Junjam",
-            role: "Developer",
-            image: "/assets/images/V3.png",
+            name: "พลอย ศิริพร",
+            role: "ผู้จัดการความสำเร็จของลูกค้า",
+            image: "https://randomuser.me/api/portraits/women/28.jpg",
             experience: "5+ ปี"
           }
         ]

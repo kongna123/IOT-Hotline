@@ -15,28 +15,26 @@ import OnlineCoursesPage from './pages/online-courses';
 
 const Routes = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/IOT-Hotline">
       <ErrorBoundary>
-      <ScrollToTop />
-      <RouterRoutes>
-        {/* Define your route here */}
-        <Route path="/" element={<Homepage />} />
-        <Route path="/shopping-cart" element={<ShoppingCart />} />
-        <Route path="/service-booking-form" element={<ServiceBookingForm />} />
-        <Route path="/product-catalog" element={<ProductCatalog />} />
-        <Route path="/job-tracking-dashboard" element={<JobTrackingDashboard />} />
-        <Route path="/homepage" element={<Homepage />} />
-        <Route path="/criminal-check" element={<CriminalCheckPage />} />
-        <Route path="/technician-registration" element={<TechnicianRegistrationPage />} />
-        <Route path="/technician-matching" element={<TechnicianMatchingPage />} />
-        <Route path="/online-courses" element={<OnlineCoursesPage />} />
-        {/* Route สำหรับ NotFound ต้องอยู่ล่างสุดเสมอ */}
-        <Route path="*" element={<NotFound />} />
-    <Route path="/criminal-check" element={<CriminalCheckPage />} />
-    <Route path="/technician-registration" element={<TechnicianRegistrationPage />} />
-    <Route path="/technician-matching" element={<TechnicianMatchingPage />} />
-    <Route path="/online-courses" element={<OnlineCoursesPage />} />
-      </RouterRoutes>
+        <ScrollToTop />
+        <RouterRoutes>
+          {/* หน้าแรก */}
+          <Route path="/" element={<Homepage />} />
+
+          {/* หน้าอื่นๆ */}
+          <Route path="/shopping-cart" element={<ShoppingCart />} />
+          <Route path="/service-booking-form" element={<ServiceBookingForm />} />
+          <Route path="/product-catalog" element={<ProductCatalog />} />
+          <Route path="/job-tracking-dashboard" element={<JobTrackingDashboard />} />
+          <Route path="/criminal-check" element={<CriminalCheckPage />} />
+          <Route path="/technician-registration" element={<TechnicianRegistrationPage />} />
+          <Route path="/technician-matching" element={<TechnicianMatchingPage />} />
+          <Route path="/online-courses" element={<OnlineCoursesPage />} />
+
+          {/* ถ้าไม่เจอ path ไหนเลย ให้ไป NotFound */}
+          <Route path="*" element={<NotFound />} />
+        </RouterRoutes>
       </ErrorBoundary>
     </BrowserRouter>
   );
