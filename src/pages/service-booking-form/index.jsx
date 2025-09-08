@@ -42,10 +42,8 @@ const ServiceBookingForm = () => {
   const steps = [
     { id: 1, title: language === 'th' ? 'ข้อมูลลูกค้า' : 'Customer Info', icon: 'User' },
     { id: 2, title: language === 'th' ? 'เลือกบริการ' : 'Service Selection', icon: 'Settings' },
-    { id: 3, title: language === 'th' ? 'อธิบายปัญหา' : 'Problem Description', icon: 'MessageSquare' },
-    { id: 4, title: language === 'th' ? 'แนบไฟล์' : 'File Upload', icon: 'Upload' },
-    { id: 5, title: language === 'th' ? 'เลือกวันเวลา' : 'Date & Time', icon: 'Calendar' },
-    { id: 6, title: language === 'th' ? 'ยืนยันข้อมูล' : 'Confirmation', icon: 'CheckCircle' }
+    { id: 3, title: language === 'th' ? 'เลือกวันเวลาและแนบไฟล์' : 'Date/Time & File Upload', icon: 'Upload' },
+    { id: 4, title: language === 'th' ? 'รายละเอียดปัญหา' : 'Problem Details', icon: 'MessageSquare' }
   ];
 
   const handleFormDataChange = (field, value) => {
@@ -65,7 +63,11 @@ const ServiceBookingForm = () => {
   };
 
   const handleSubCategoryChange = (value) => {
-    setSelectedSubCategory(value);
+    if (selectedCategory) {
+      setSelectedSubCategory(value);
+    } else {
+      setErrors(prev => ({ ...prev, subCategory: 'กรุณาเลือกหมวดหมู่หลักก่อน' }));
+    }
   };
 
   const handleProblemDescriptionChange = (value) => {
@@ -120,22 +122,25 @@ const ServiceBookingForm = () => {
         if (!selectedCategory) {
           newErrors.category = 'กรุณาเลือกประเภทบริการ';
         }
-        break;
-
-      case 3:
-        if (!formData?.problemDescription?.trim()) {
-          newErrors.problemDescription = 'กรุณาอธิบายปัญหาที่พบ';
-        } else if (formData?.problemDescription?.trim()?.length < 20) {
-          newErrors.problemDescription = 'กรุณาอธิบายปัญหาให้ละเอียดมากขึ้น (อย่างน้อย 20 ตัวอักษร)';
+        if (!selectedSubCategory) {
+          newErrors.subCategory = 'กรุณาเลือกประเภทอุปกรณ์';
         }
         break;
 
-      case 5:
+      case 3:
         if (!selectedDate) {
           newErrors.date = 'กรุณาเลือกวันที่';
         }
         if (!selectedTime) {
           newErrors.time = 'กรุณาเลือกเวลา';
+        }
+        break;
+
+      case 4:
+        if (!formData?.problemDescription?.trim()) {
+          newErrors.problemDescription = 'กรุณาอธิบายปัญหาที่พบ';
+        } else if (formData?.problemDescription?.trim()?.length < 20) {
+          newErrors.problemDescription = 'กรุณาอธิบายปัญหาให้ละเอียดมากขึ้น (อย่างน้อย 20 ตัวอักษร)';
         }
         break;
     }
@@ -155,7 +160,7 @@ const ServiceBookingForm = () => {
   };
 
   const handleSubmit = async () => {
-    if (!validateStep(5)) return;
+    if (!validateStep(4)) return;
 
     setIsSubmitting(true);
     
@@ -216,48 +221,34 @@ const ServiceBookingForm = () => {
             selectedSubCategory={selectedSubCategory}
             onCategoryChange={handleCategoryChange}
             onSubCategoryChange={handleSubCategoryChange}
-            error={errors?.category}
+            error={errors?.category || errors?.subCategory}
           />
         );
 
       case 3:
         return (
-          <ProblemDescriptionForm
-            description={formData?.problemDescription}
-            onChange={handleProblemDescriptionChange}
-            error={errors?.problemDescription}
-          />
+          <>
+            <DateTimeSelector
+              selectedDate={selectedDate}
+              selectedTime={selectedTime}
+              onDateChange={handleDateChange}
+              onTimeChange={handleTimeChange}
+              errors={{ date: errors?.date, time: errors?.time }}
+            />
+            <FileUploadComponent
+              files={uploadedFiles}
+              onFilesChange={handleFilesChange}
+              error={errors?.files}
+            />
+          </>
         );
 
       case 4:
         return (
-          <FileUploadComponent
-            files={uploadedFiles}
-            onFilesChange={handleFilesChange}
-            error={errors?.files}
-          />
-        );
-
-      case 5:
-        return (
-          <DateTimeSelector
-            selectedDate={selectedDate}
-            selectedTime={selectedTime}
-            onDateChange={handleDateChange}
-            onTimeChange={handleTimeChange}
-            errors={{ date: errors?.date, time: errors?.time }}
-          />
-        );
-
-      case 6:
-        return (
-          <FormSummary
-            formData={formData}
-            selectedCategory={selectedCategory}
-            selectedSubCategory={selectedSubCategory}
-            selectedDate={selectedDate}
-            selectedTime={selectedTime}
-            files={uploadedFiles}
+          <ProblemDescriptionForm
+            description={formData?.problemDescription}
+            onChange={handleProblemDescriptionChange}
+            error={errors?.problemDescription}
           />
         );
 
