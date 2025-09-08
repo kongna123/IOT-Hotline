@@ -72,19 +72,19 @@ const AboutSection = ({ language }) => {
           {
             name: "Nattaphon Thongtiang",
             role: "Head of Service Training",
-            image: "/assets/images/demonic.png",
+            image: "https://randomuser.me/api/portraits/men/32.jpg",
             experience: "8+ ปี"
           },
           {
             name: "Anuphab Siripimploy",
             role: "Human Resoruce",
-            image: "/assets/images/peenong.png",
+            image: "https://randomuser.me/api/portraits/men/32.jpg",
             experience: "6+ ปี"
           },
           {
             name: "Napat Junjam",
             role: "Developer",
-            image: "/assets/images/V3.png",
+            image: "https://randomuser.me/api/portraits/men/32.jpg",
             experience: "5+ ปี"
           }
         ]

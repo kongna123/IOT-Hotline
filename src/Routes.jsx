@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes as RouterRoutes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "components/ScrollToTop";
 import ErrorBoundary from "components/ErrorBoundary";
 import NotFound from "pages/NotFound";
@@ -13,33 +13,28 @@ import TechnicianRegistrationPage from './pages/technician-registration';
 import TechnicianMatchingPage from './pages/technician-matching';
 import OnlineCoursesPage from './pages/online-courses';
 
-const Routes = () => {
+const AppRoutes = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/IOT-Hotline">
       <ErrorBoundary>
-      <ScrollToTop />
-      <RouterRoutes>
-        {/* Define your route here */}
-        <Route path="/" element={<Homepage />} />
-        <Route path="/shopping-cart" element={<ShoppingCart />} />
-        <Route path="/service-booking-form" element={<ServiceBookingForm />} />
-        <Route path="/product-catalog" element={<ProductCatalog />} />
-        <Route path="/job-tracking-dashboard" element={<JobTrackingDashboard />} />
-        <Route path="/homepage" element={<Homepage />} />
-        <Route path="/criminal-check" element={<CriminalCheckPage />} />
-        <Route path="/technician-registration" element={<TechnicianRegistrationPage />} />
-        <Route path="/technician-matching" element={<TechnicianMatchingPage />} />
-        <Route path="/online-courses" element={<OnlineCoursesPage />} />
-        {/* Route สำหรับ NotFound ต้องอยู่ล่างสุดเสมอ */}
-        <Route path="*" element={<NotFound />} />
-    <Route path="/criminal-check" element={<CriminalCheckPage />} />
-    <Route path="/technician-registration" element={<TechnicianRegistrationPage />} />
-    <Route path="/technician-matching" element={<TechnicianMatchingPage />} />
-    <Route path="/online-courses" element={<OnlineCoursesPage />} />
-      </RouterRoutes>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/homepage" element={<Homepage />} />
+          <Route path="/shopping-cart" element={<ShoppingCart />} />
+          <Route path="/service-booking-form" element={<ServiceBookingForm />} />
+          <Route path="/product-catalog" element={<ProductCatalog />} />
+          <Route path="/job-tracking-dashboard" element={<JobTrackingDashboard />} />
+          <Route path="/criminal-check" element={<CriminalCheckPage />} />
+          <Route path="/technician-registration" element={<TechnicianRegistrationPage />} />
+          <Route path="/technician-matching" element={<TechnicianMatchingPage />} />
+          <Route path="/online-courses" element={<OnlineCoursesPage />} />
+          {/* This route catches all undefined paths and must be the last one */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </ErrorBoundary>
     </BrowserRouter>
   );
 };
 
-export default Routes;
+export default AppRoutes;
